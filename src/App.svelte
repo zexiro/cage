@@ -237,6 +237,10 @@
   </div>
 </main>
 
+<footer class="codehawks-footer">
+  A <a href="https://www.codehawks.co.uk" target="_blank" rel="noopener noreferrer">CodeHawks</a> project
+</footer>
+
 {#if showPicker}
   <ConstraintPicker
     {activeConstraints}
@@ -349,5 +353,19 @@
     .main {
       padding: 1rem;
     }
+  }
+
+  .codehawks-footer {
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+  .codehawks-footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .codehawks-footer a:hover {
+    text-decoration: underline;
   }
 </style>
