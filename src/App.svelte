@@ -10,6 +10,7 @@
   import ThemeToggle from './lib/components/ThemeToggle.svelte';
   import SessionList from './lib/components/SessionList.svelte';
   import ShareModal from './lib/components/ShareModal.svelte';
+  import About from './components/About.svelte';
 
   let text = $state('');
   let activeConstraints = $state([]);
@@ -18,6 +19,7 @@
   let showPicker = $state(false);
   let showSessions = $state(false);
   let showShare = $state(false);
+  let showAbout = $state(false);
   let shareUrl = $state('');
   let copied = $state(false);
 
@@ -164,6 +166,7 @@
       if (showPicker) showPicker = false;
       else if (showSessions) showSessions = false;
       else if (showShare) showShare = false;
+      else if (showAbout) showAbout = false;
     }
   }
 </script>
@@ -209,11 +212,24 @@
           </svg>
         </button>
       {/if}
+      <button
+        class="icon-btn"
+        onclick={() => showAbout = true}
+        aria-label="About"
+        title="About"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="16" x2="12" y2="12"/>
+          <line x1="12" y1="8" x2="12.01" y2="8"/>
+        </svg>
+      </button>
       <ThemeToggle bind:theme />
     </div>
   </div>
 </header>
 
+{#if !showAbout}
 <main class="main">
   <div class="editor-container">
     <ConstraintPills
@@ -236,8 +252,15 @@
     <StatsFooter {stats} {difficulty} />
   </div>
 </main>
+{:else}
+<main class="main">
+  <About onClose={() => showAbout = false} />
+</main>
+{/if}
 
 <footer class="codehawks-footer">
+  <button class="footer-link" onclick={() => showAbout = true}>About</button>
+  &middot;
   A <a href="https://www.codehawks.co.uk" target="_blank" rel="noopener noreferrer">CodeHawks</a> project
 </footer>
 
@@ -366,6 +389,19 @@
     text-decoration: none;
   }
   .codehawks-footer a:hover {
+    text-decoration: underline;
+  }
+  .footer-link {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+  }
+  .footer-link:hover {
     text-decoration: underline;
   }
 </style>
