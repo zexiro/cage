@@ -1,0 +1,109 @@
+/* === Reset & Base === */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #FAFAF8;
+  --bg-elevated: #F0F0EC;
+  --text: #2D2D2D;
+  --text-muted: #8A8A8A;
+  --text-faint: #B0B0B0;
+  --accent: #C4654A;
+  --accent-soft: rgba(196, 101, 74, 0.08);
+  --accent-medium: rgba(196, 101, 74, 0.15);
+  --clean: #7A9E7E;
+  --clean-soft: rgba(122, 158, 126, 0.1);
+  --border: #E0E0DC;
+  --border-light: #EBEBEB;
+  --shadow: rgba(0, 0, 0, 0.06);
+
+  --font-serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'SF Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace;
+
+  --editor-size: 1.125rem;
+  --editor-line-height: 1.75;
+  --max-width: 680px;
+
+  --transition-fast: 120ms ease;
+  --transition-normal: 200ms ease;
+}
+
+[data-theme="dark"] {
+  --bg: #1A1A1E;
+  --bg-elevated: #252528;
+  --text: #E0E0E0;
+  --text-muted: #8A8A8A;
+  --text-faint: #5A5A5A;
+  --accent: #D4795E;
+  --accent-soft: rgba(212, 121, 94, 0.1);
+  --accent-medium: rgba(212, 121, 94, 0.18);
+  --clean: #8AB88E;
+  --clean-soft: rgba(138, 184, 142, 0.1);
+  --border: #333338;
+  --border-light: #2A2A2E;
+  --shadow: rgba(0, 0, 0, 0.2);
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  transition: background var(--transition-normal), color var(--transition-normal);
+  min-height: 100vh;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent);
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  font-size: 0.875rem;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
