@@ -158,6 +158,7 @@
     background: var(--accent-soft);
     border-bottom: 2px solid var(--accent);
     border-radius: 1px;
+    color: inherit;
   }
 
   .editor-overlay :global(.placeholder-text) {

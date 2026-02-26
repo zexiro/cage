@@ -204,6 +204,7 @@
     border: 1px solid var(--border-light);
     border-radius: 8px;
     cursor: pointer;
+    color: var(--text);
     transition: border-color var(--transition-fast), background var(--transition-fast);
     width: 100%;
   }
